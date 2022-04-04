@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Roboto:wght@100;300;400;500&display=swap');
+
+:root {
+    --purple: #5722CD;
+    --blue: #4845E4;
+    --pink: #ED4385;
+    --black: #0C0C0C; /*(voor standaard tekst)*/
+    --lightpurple: #F2F0FF; /*(voor de grote zwevende woorden, zoals "hello" en "services") Uitzonderingen:*/
+    --lightgray: #F3F6F9; /*(voor de achtergrond van de projecten)*/
+    --gray: #7A7A7A; /*(voor de service-tegel tekst);*/
+}
+
+
+/* ------------------------------- 1. Global Styles -------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+a {
+    text-decoration: none;
+}
+/* ------------------------------- 2. Typography ----------------------------------- */
+
+h1, h2, h3 {
+    font-family: Merriweather, Arial, sans-serif;
+}
+
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+.section {
+
+}
+
+.content-container {
+    flex-basis: 700px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    border: 3px solid yellow;
+}
+
+/* ------------------------------- 4. Areas ---------------------------------------- */
+
+/* --------------- 4.1 Header ------------------- */
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.wrapper{
+
+}
+
+.header {
+    background:linear-gradient(135deg, var(--blue), var(--purple));
+    text-align: center;
+    width: 100%;
+}
+
+.header::after{
+    content: url(assets/squiggle_line_stripe.svg);
+    position: relative;
+    bottom: -30px;
+}
+
+.nav {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+
+.nav ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav ul li{
+    margin: 0 30px;
+}
+
+
+.nav ul li a {
+    color: #fff;
+    font-weight: 100;
+    text-decoration: none;
+}
+
+.text-container-centered {
+    margin: 80px auto 0;
+    padding-bottom: 100px;
+    width: 50vw;
+}
+
+
+.hero-headline {
+    color: #fff;
+    font-size: 38px;
+}
+
+.hero-subheading {
+    color: #fff;
+    font-weight: 300;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+button {
+    background: var(--pink);
+    color: #fff;
+    outline: none;
+    padding: 18px 36px;
+    text-transform: uppercase;
+    border-radius: 40px;
+    font-family: Roboto;
+    border: none;
+    margin: 30px 0;
+    box-shadow: 2px 2px 8px rgba(0,0,0,.4);
+}
+
+
+/* --------------- 4.2 Introduction ------------- */
+
+#hello::before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    border-right: 100vw solid transparent;
+    border-bottom: 40px solid #fff;
+    z-index: 10;
+    position: relative;
+    left:0;
+    top: -40px;
+}
+
+#hello {
+    background-color: transparent;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+
+#hello::after {
+    content: "hello";
+    display: flex;
+    justify-content: center;
+    height: 0;
+    width: 0;
+    color: var(--lightgray);
+    position: relative;
+    top: -520px ;
+    left: 50%;
+    font-weight: 500;
+    font-size: 400px;
+    z-index: -10;
+}
+
+.textline {
+    color: var(--purple);
+    margin: 30px 0;
+}
+
+.small-text {
+    margin-top: 80px;
+    font-weight: 500;
+}
+
+/* --------------- 4.3 Work ------------- */
+
+#work::before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    border-right: 100vw solid transparent;
+    border-bottom: 40px solid var(--lightgray);
+    z-index: 10;
+    position: relative;
+    left:0;
+    top: -190px;
+}
+
+#work::after {
+    content: "work";
+    display: flex;
+    justify-content: center;
+    height: 0;
+    width: 0;
+    color: #fff;
+    position: absolute;
+    top: 0px ;
+    left: 50%;
+    font-weight: 500;
+    font-size: 400px;
+    z-index: 10;
+}
+
+#work {
+    background: var(--lightgray);
+    position: relative;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+article {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0;
+}
+
+.text-box {
+    width: 40vw;
+}
+
+.text-box:nth-of-type(2) {
+    padding-left: 130px;
+}
+
+:root {
+    --text-container-padding: 50px;
+}
+.text-container {
+    margin: 0 40px;
+    padding-left: var(--text-container-padding);
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    border: 3px solid red;
+}
+
+.card-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 100px 0;
+}
+
+.card-title::after {
+    content: url(assets/squiggle_line.svg);
+    position: absolute;
+    left: var(--text-container-padding) ;
+    top: 150px;
+}
+
+.card-text {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.cta {
+    text-transform: uppercase;
+    font-family: Roboto;
+    letter-spacing: 0.25em;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 60px 0;
+    color: var(--purple);
+}
+
+.image-box {
+    width: 50vw;
+    z-index: 20;
+}
+
+article img {
+    width: 100%;
+    height: fit-content;
+    box-shadow: 0px 20px 15px rgb(0 0 0 / 20%);
+ }
+
+/* --------------- 4.4 Services ------------- */
+
+#services::before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    border-right: 100vw solid transparent;
+    border-bottom: 40px solid #fff;
+    z-index: 10;
+    position: relative;
+    left:0;
+    top: -220px;
+}
+
+#services {
+    background: transparent;
+    padding: 180px 0;
+    position: relative;
+}
+
+#services::after {
+    content: "services";
+    display: flex;
+    justify-content: center;
+    height: 0;
+    width: 0;
+    color: var(--lightgray);
+    position: absolute;
+    top: 56px;
+    left: 50%;
+    font-weight: 500;
+    font-size: 220px;
+    z-index: -10;
+}
+
+.services-cards-container {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.services-card {
+    width: 30%;
+    border: 2px solid var(--purple);
+    box-shadow: 0px 10px 10px rgb(0 0 0 / 10%);
+    margin: 20px 0;
+    padding: 30px;
+    background: #fff;
+}
+
+.icon {
+    height: 50px;
+}
+
+.services-card-title {
+    font-size: 22px;
+    color: var(--purple);
+    font-family: Merriweather, Arial, sans-serif;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.services-card-content {
+    font-size: 14px;
+    color: var(--gray);
+    margin: 20px 0;
+}
+
+/* --------------- 4.5 Contact ------------- */
+
+#contact::before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    border-left: 100vw solid transparent;
+    border-top: 40px solid #fff;
+    z-index: 10;
+    position: absolute;
+    left:0;
+    top: 0px;
+}
+
+
+#contact {
+    padding-top: 100px;
+    background:linear-gradient(135deg, var(--blue), var(--purple));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.form-container {
+    margin: 100px 0 40px;
+    text-align: center;
+    width: 55%;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.contact-form-heading {
+    color: white;
+    font-size: 42px;
+    font-weight: ;
+    margin: 20px 0;
+}
+
+.contact-form-subheading {
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 20px 0;
+}
+
+form label {
+    color: #fff;
+    text-align: left;
+    font-size: 14px;
+}
+
+form input {
+    padding: 20px;
+    height: 0px;
+    margin-bottom: 30px;
+}
+
+
+form button {
+    padding: 18px 70px;
+    width: fit-content;
+    margin: 30px auto;
+}
+
+/* --------------- 4.6 Footer ------------- */
+
+.footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.footer p {
+    padding: 20px 0;
+    font-size: 12px;
+    font-weight: 300;
+}
