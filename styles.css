@@ -40,31 +40,54 @@ h1, h2, h3 {
     flex-basis: 700px;
     flex-grow: 0;
     flex-shrink: 1;
-    border: 3px solid yellow;
 }
 
 /* ------------------------------- 4. Areas ---------------------------------------- */
 
 /* --------------- 4.1 Header ------------------- */
 body {
-    max-width: 100%;
-    overflow-x: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
 }
 
 .wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1400px;
+    flex-grow: 0;
+    align-items: center;
+}
 
+.z10 {
+    z-index: 10;
 }
 
 .header {
     background:linear-gradient(135deg, var(--blue), var(--purple));
     text-align: center;
     width: 100%;
+    position: relative;
+    z-index: 0;
 }
 
-.header::after{
+.header:before {
+    content: '';
+    display: block;
+    background:  url(assets/noise-texture.png);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.header:after{
     content: url(assets/squiggle_line_stripe.svg);
     position: relative;
-    bottom: -30px;
+    bottom: 0;
 }
 
 .nav {
@@ -122,12 +145,32 @@ button {
     border: none;
     margin: 30px 0;
     box-shadow: 2px 2px 8px rgba(0,0,0,.4);
+    z-index: 10;
+}
+
+.triangle-main {
+    background: #fff;
+    position: absolute;
+    bottom:0;
+}
+/* --------------- 4.2 Introduction ------------- */
+
+.triangle {
+    height: 40px;
+    width: 100%;
+    clip-path: polygon(0% 0%, 0% 100%,100% 100%);
+    z-index: 1000;
+}
+
+.triangle2 {
+    height: 40px;
+    width: 100%;
+    clip-path: polygon(0% 0%, 0% 100%,100% 100%);
+    z-index: 1000;
 }
 
 
-/* --------------- 4.2 Introduction ------------- */
-
-#hello::before {
+/*#hello::before {
     content: "";
     display: block;
     height: 0;
@@ -138,7 +181,7 @@ button {
     position: relative;
     left:0;
     top: -40px;
-}
+}*/
 
 #hello {
     background-color: transparent;
@@ -175,17 +218,21 @@ button {
 
 /* --------------- 4.3 Work ------------- */
 
-#work::before {
+/*#work::before {
     content: "";
     display: block;
     height: 0;
     width: 0;
-    border-right: 100vw solid transparent;
+    !*border-right: 100vw solid transparent;*!
     border-bottom: 40px solid var(--lightgray);
     z-index: 10;
     position: relative;
     left:0;
     top: -190px;
+}*/
+
+.triangle-hello{
+    background: var(--lightgray);
 }
 
 #work::after {
@@ -200,7 +247,7 @@ button {
     left: 50%;
     font-weight: 500;
     font-size: 400px;
-    z-index: 10;
+
 }
 
 #work {
@@ -217,13 +264,17 @@ article {
     margin: 80px 0;
 }
 
+article:nth-of-type(1), article:nth-of-type(3) {
+    flex-direction: row-reverse;
+}
+
 .text-box {
     width: 40vw;
 }
 
-.text-box:nth-of-type(2) {
+/*.text-box:nth-of-type(2) {
     padding-left: 130px;
-}
+}*/
 
 :root {
     --text-container-padding: 50px;
@@ -237,13 +288,13 @@ article {
     justify-content: center;
     align-items: flex-start;
     position: relative;
-    border: 3px solid red;
 }
 
 .card-title {
     font-size: 28px;
     font-weight: 700;
     margin: 100px 0;
+    z-index: 100;
 }
 
 .card-title::after {
@@ -266,9 +317,27 @@ article {
     font-weight: 500;
     margin: 60px 0;
     color: var(--purple);
+    position: relative;
+}
+
+.cta::after {
+    content: '';
+    height: 2px;
+    width: 30px;
+    background: var(--purple);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 150px;
+    transition: 200ms;
+}
+
+.cta:hover.cta:after {
+    width: 60px;
 }
 
 .image-box {
+    margin: 0 40px;
     width: 50vw;
     z-index: 20;
 }
@@ -277,11 +346,17 @@ article img {
     width: 100%;
     height: fit-content;
     box-shadow: 0px 20px 15px rgb(0 0 0 / 20%);
- }
+}
+
+.triangle-work {
+    background: #fff;
+    bottom:0;
+    position: absolute;
+}
 
 /* --------------- 4.4 Services ------------- */
 
-#services::before {
+/*#services::before {
     content: "";
     display: block;
     height: 0;
@@ -292,7 +367,7 @@ article img {
     position: relative;
     left:0;
     top: -220px;
-}
+}*/
 
 #services {
     background: transparent;
@@ -352,7 +427,7 @@ article img {
 
 /* --------------- 4.5 Contact ------------- */
 
-#contact::before {
+/*#contact::before {
     content: "";
     display: block;
     height: 0;
@@ -363,6 +438,16 @@ article img {
     position: absolute;
     left:0;
     top: 0px;
+}*/
+
+.triangle-contact {
+    background: #fff;
+    height: 40px;
+    width: 100%;
+    clip-path: polygon(0% 0%, 100% 0%,100% 100%);
+    z-index: 1000;
+    position: absolute;
+    top: -1px;
 }
 
 
@@ -390,7 +475,6 @@ form {
 .contact-form-heading {
     color: white;
     font-size: 42px;
-    font-weight: ;
     margin: 20px 0;
 }
 
@@ -426,10 +510,93 @@ form button {
     background: #000;
     color: #fff;
     text-align: center;
+    width: 100%;
 }
 
 .footer p {
     padding: 20px 0;
     font-size: 12px;
     font-weight: 300;
+}
+
+/* --------------- 5 Media queries ------------- */
+
+@media (max-width: 1000px) {
+    .image-box {
+        margin: 0;
+    }
+    .text-container {
+        padding-left: 0;
+        width: 32vw;
+    }
+    #hello::after {
+        font-size: 340px, #work::after;
+    }
+    #services::after{
+        font-size: 180px;
+    }
+    .card-title::after {
+    left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-box {
+        width: 100%;
+    }
+    .text-box {
+        width: 100%
+    }
+    .text-container {
+        width: 80%;
+    }
+    article {
+        display: block;
+        flex-direction: row;
+    }
+    .wrapper {
+        margin: 30px;
+    }
+    #hello::after, #work::after {
+        font-size: 280px;
+    }
+    #services::after{
+        font-size: 150px;
+    }
+    .services-cards-container{
+        width: 90%;
+    }
+    .services-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 620px) {
+    #hello::after, #work::after {
+        font-size: 230px;
+    }
+    #services::after{
+        font-size: 120px;
+    }
+    .services-cards-container {
+        justify-content: center;
+    }
+    .services-card {
+        width: 80%;
+    }
+    .wrapper {
+        margin: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .wrapper {
+        margin: 0;
+    }
+    #hello::after, #work::after  {
+        font-size: 180px;
+    }
+    #services::after{
+        font-size: 90px;
+    }
 }
